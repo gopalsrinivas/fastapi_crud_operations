@@ -2,6 +2,7 @@ from dotenv import load_dotenv
 import os
 from pydantic_settings import BaseSettings
 from pathlib import Path
+from typing import List
 
 # Load environment variables from .env file
 env_path = Path(__file__).resolve().parent.parent.parent / '.env'
@@ -12,8 +13,8 @@ class Settings(BaseSettings):
     DATABASE_URL: str
     SECRET_KEY: str
     DEBUG: bool
-    ALLOWED_HOSTS: str
-    CORS_ORIGINS: str
+    ALLOWED_HOSTS: List[str]
+    CORS_ORIGINS: List[str]
     ENVIRONMENT: str
 
     class Config:

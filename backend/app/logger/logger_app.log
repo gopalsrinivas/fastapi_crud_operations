@@ -1,0 +1,42 @@
+INFO 2024-09-20 23:24:58,249 root No schema changes detected; skipping migration.
+INFO 2024-09-20 23:26:30,204 root No schema changes detected; skipping migration.
+INFO 2024-09-20 23:27:20,129 sqlalchemy.engine.Engine select pg_catalog.version()
+INFO 2024-09-20 23:27:20,129 sqlalchemy.engine.Engine [raw sql] ()
+INFO 2024-09-20 23:27:20,132 sqlalchemy.engine.Engine select current_schema()
+INFO 2024-09-20 23:27:20,132 sqlalchemy.engine.Engine [raw sql] ()
+INFO 2024-09-20 23:27:20,134 sqlalchemy.engine.Engine show standard_conforming_strings
+INFO 2024-09-20 23:27:20,134 sqlalchemy.engine.Engine [raw sql] ()
+INFO 2024-09-20 23:27:20,135 sqlalchemy.engine.Engine BEGIN (implicit)
+INFO 2024-09-20 23:27:20,141 sqlalchemy.engine.Engine SELECT notes.id, notes.title, notes.content, notes.is_active, notes.created_on, notes.updated_on 
+FROM notes 
+ LIMIT $1::INTEGER OFFSET $2::INTEGER
+INFO 2024-09-20 23:27:20,142 sqlalchemy.engine.Engine [generated in 0.00093s] (5, 0)
+INFO 2024-09-20 23:27:20,146 app.core.logging Successfully fetched 5 notes.
+INFO 2024-09-20 23:27:20,146 app.core.logging Successfully retrieved 5 notes.
+INFO 2024-09-20 23:27:20,146 sqlalchemy.engine.Engine ROLLBACK
+INFO 2024-09-20 23:27:50,056 sqlalchemy.engine.Engine BEGIN (implicit)
+INFO 2024-09-20 23:27:50,057 sqlalchemy.engine.Engine SELECT notes.id, notes.title, notes.content, notes.is_active, notes.created_on, notes.updated_on 
+FROM notes 
+WHERE notes.id = $1::VARCHAR
+INFO 2024-09-20 23:27:50,059 sqlalchemy.engine.Engine [generated in 0.00088s] ('asdfadsfadf',)
+WARNING 2024-09-20 23:27:50,061 app.core.logging Note with ID asdfadsfadf not found.
+WARNING 2024-09-20 23:27:50,061 app.core.logging Note with ID asdfadsfadf not found.
+ERROR 2024-09-20 23:27:50,061 app.core.logging Error retrieving note asdfadsfadf: 404: Note not found
+INFO 2024-09-20 23:27:50,061 sqlalchemy.engine.Engine ROLLBACK
+INFO 2024-09-20 23:28:29,666 sqlalchemy.engine.Engine BEGIN (implicit)
+INFO 2024-09-20 23:28:29,667 sqlalchemy.engine.Engine SELECT notes.id, notes.title, notes.content, notes.is_active, notes.created_on, notes.updated_on 
+FROM notes 
+WHERE notes.id = $1::VARCHAR
+INFO 2024-09-20 23:28:29,668 sqlalchemy.engine.Engine [cached since 39.61s ago] ('8ca4ef0e-5a53-4db5-9ac2-4dcaadd6b974',)
+INFO 2024-09-20 23:28:29,669 app.core.logging Successfully retrieved note: 8ca4ef0e-5a53-4db5-9ac2-4dcaadd6b974
+INFO 2024-09-20 23:28:29,669 app.core.logging Successfully retrieved note: 8ca4ef0e-5a53-4db5-9ac2-4dcaadd6b974
+INFO 2024-09-20 23:28:29,670 sqlalchemy.engine.Engine ROLLBACK
+INFO 2024-09-20 23:28:45,681 sqlalchemy.engine.Engine BEGIN (implicit)
+INFO 2024-09-20 23:28:45,681 sqlalchemy.engine.Engine SELECT notes.id, notes.title, notes.content, notes.is_active, notes.created_on, notes.updated_on 
+FROM notes 
+WHERE notes.id = $1::VARCHAR
+INFO 2024-09-20 23:28:45,683 sqlalchemy.engine.Engine [cached since 55.63s ago] ('8ca4ef0e-5a53-4db5-9ac2-4dcaadd6b979',)
+WARNING 2024-09-20 23:28:45,685 app.core.logging Note with ID 8ca4ef0e-5a53-4db5-9ac2-4dcaadd6b979 not found.
+WARNING 2024-09-20 23:28:45,685 app.core.logging Note with ID 8ca4ef0e-5a53-4db5-9ac2-4dcaadd6b979 not found.
+ERROR 2024-09-20 23:28:45,685 app.core.logging Error retrieving note 8ca4ef0e-5a53-4db5-9ac2-4dcaadd6b979: 404: Note not found
+INFO 2024-09-20 23:28:45,685 sqlalchemy.engine.Engine ROLLBACK
