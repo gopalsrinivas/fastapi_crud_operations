@@ -1,0 +1,7 @@
+fastapi
+sqlalchemy
+sqlmodel
+asyncpg
+uvicorn
+python-dotenv
+pydantic-settings
